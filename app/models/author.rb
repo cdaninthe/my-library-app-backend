@@ -8,4 +8,10 @@ class Author < ActiveRecord::Base
             "#{book.title} - #{book.genre.name}"
         end
     end
+
+    # Number of books for an author
+    def books_count
+        self.books.count 
+    end
+
 end

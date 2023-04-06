@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   # BOOK ROUTES
   ### CREATE, UPDATE & DELETE BOOKS
   get '/books' do
-    Book.all.to_json
+    Book.all.to_json(include: [:author, :genre])
   end
   
   get '/books/:id' do
@@ -63,11 +63,15 @@ class ApplicationController < Sinatra::Base
 
   ### MY NEWEST BOOK (LAST ADDED IN LIBRARY)
   get '/books_newest' do
-    Book.newest.to_json
+    Book.newest.to_json(include: :author)
   end  
 
 
   # AUTHORS ROUTES
+  get '/authors' do
+    Author.all.to_json(include: :books)
+  end
+
   post '/authors' do
     author = Author.create(name: params[:name])
     author.to_json
@@ -81,6 +85,10 @@ class ApplicationController < Sinatra::Base
 
 
   # GENRES ROUTES
+  get '/genres' do
+    Genre.all.to_json(include: :books)
+  end
+
   post '/genres' do
     genre = Genre.create(name: params[:name])
     genre.to_json

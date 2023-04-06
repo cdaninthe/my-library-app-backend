@@ -26,4 +26,5 @@ class Book < ActiveRecord::Base
     def self.newest
         self.where('created_at =?', self.maximum(:created_at))
     end
+
 end

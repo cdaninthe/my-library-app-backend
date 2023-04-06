@@ -22,4 +22,7 @@ Book.create(title: "The Life-Changing Magic of Tidying Up", pages: 226, read: tr
 Book.create(title: "Atomic Habits", pages: 306, read: false, author_id: 3, genre_id: 2)
 Book.create(title: "The Four Agreements: A Practical Guide to Personal Freedom", pages: 160, read: false, author_id: 4, genre_id: 2)
 
+# Book.create(title: " 2 The Four Agreements: A Practical Guide to Personal Freedom", pages: 160, read: false, author_id: 4, genre_id: 2)
+
+
 puts "✅ Done seeding!"
