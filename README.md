@@ -18,7 +18,7 @@ My Wardrobe is a Single Page Application built with React on the frontend and Ru
 
 C O N T E X T
 =========
-This app was created as part of my portfolio project for Flatiron School, Software Engineer Bootcamp. The project was required to follow the following:
+This app was created as part of my portfolio project for Flatiron School, Software Engineer Bootcamp. The project was required to follow the following: 
 
 1- Use Active Record to interact with a database.
 
