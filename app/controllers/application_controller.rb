@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
       author_id: params[:author_id],
       genre_id: params[:genre_id]
     )
-    book.to_json
+    book.to_json(include: [:author, :genre]) 
   end
 
   patch '/books/:id' do
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
       author_id: params[:author_id],
       genre_id: params[:genre_id]
     )
-    book.to_json
+    book.to_json(include: [:author, :genre])
   end
 
   delete '/books/:id' do
@@ -70,6 +70,7 @@ class ApplicationController < Sinatra::Base
   # AUTHORS ROUTES
   get '/authors' do
     Author.all.to_json(include: :books)
+    # Author.all.to_json(include: [:books, :genres])
   end
 
   post '/authors' do
@@ -87,6 +88,7 @@ class ApplicationController < Sinatra::Base
   # GENRES ROUTES
   get '/genres' do
     Genre.all.to_json(include: :books)
+    # Genre.all.to_json(include: [:books, :authors])
   end
 
   post '/genres' do
